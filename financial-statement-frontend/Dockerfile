@@ -1,0 +1,28 @@
+# Build Stage
+FROM node:22-alpine AS build
+
+WORKDIR /src
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# Production Stage
+FROM node:22-alpine AS production
+
+WORKDIR /app
+
+COPY --from=build /src/.next ./.next
+COPY --from=build /src/node_modules ./node_modules
+COPY --from=build /src/package.json ./package.json
+COPY --from=build /src/public ./public
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
