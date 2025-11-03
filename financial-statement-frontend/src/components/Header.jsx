@@ -85,37 +85,38 @@ export default function Header() {
             </svg>
           </button>
 
-          {/* Mobile Dropdown Menu */}
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 mt-1 sm:mt-2 bg-brand-white shadow-lg rounded-lg p-3 sm:p-4 z-50 mx-2 sm:mx-6 border border-gray-100 sm:hidden">
-              <ul className="space-y-2 sm:space-y-3 font-medium text-sm">
-                {navLinks.map((link) => (
-                  <li
-                    key={link.label}
-                    className="py-2 cursor-pointer text-brand-subtext hover:text-brand-accent hover:bg-brand-tint rounded px-2 transition-colors"
-                  >
-                    <Link href={link.href}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
+     {/* Mobile Dropdown Menu */}
+{isMenuOpen && (
+  <div className="absolute top-full left-0 right-0 mt-1 sm:mt-2 bg-brand-white shadow-lg rounded-lg p-3 sm:p-4 mx-2 sm:mx-6 border border-gray-100 sm:hidden z-[9999]">
+    <ul className="space-y-2 sm:space-y-3 font-medium text-sm">
+      {navLinks.map((link) => (
+        <li
+          key={link.label}
+          className="py-2 cursor-pointer text-brand-subtext hover:text-brand-accent hover:bg-brand-tint rounded px-2 transition-colors"
+        >
+          <Link href={link.href}>{link.label}</Link>
+        </li>
+      ))}
+    </ul>
 
-              {/* Mobile CTA Buttons */}
-              <div className="mt-3 flex flex-col gap-2">
-                <Link
-                  href={user ? "/dashboard" : "/signup"}
-                  className="w-full text-center bg-brand-tint text-brand-primary px-4 py-2 rounded-full font-semibold hover:bg-brand-mint-light transition-colors"
-                >
-                  {user ? "Go to Dashboard" : "Get Started"}
-                </Link>
-                <button
-                  onClick={() => (window.location.href = "/upload")}
-                  className="w-full bg-brand-primary text-brand-white px-4 py-2 rounded-full font-medium hover:bg-brand-purple-light transition-colors"
-                >
-                  Upload Document
-                </button>
-              </div>
-            </div>
-          )}
+    {/* Mobile CTA Buttons */}
+    <div className="mt-3 flex flex-col gap-2">
+      <Link
+        href={user ? "/dashboard" : "/signup"}
+        className="w-full text-center bg-brand-tint text-brand-primary px-4 py-2 rounded-full font-semibold hover:bg-brand-mint-light transition-colors"
+      >
+        {user ? "Go to Dashboard" : "Get Started"}
+      </Link>
+      <button
+        onClick={() => (window.location.href = "/upload")}
+        className="w-full bg-brand-primary text-brand-white px-4 py-2 rounded-full font-medium hover:bg-brand-purple-light transition-colors"
+      >
+        Upload Document
+      </button>
+    </div>
+  </div>
+)}
+
         </header>
       </div>
     </motion.div>
