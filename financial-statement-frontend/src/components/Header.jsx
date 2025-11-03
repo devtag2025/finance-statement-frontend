@@ -12,7 +12,6 @@ export default function Header() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Calculator", href: "/upload" },
-    { label: "Contact Us", href: "/contact" },
   ];
 
   return (
