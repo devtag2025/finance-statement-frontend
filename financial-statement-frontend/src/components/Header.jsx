@@ -49,7 +49,7 @@ export default function Header() {
           {/* Call-to-Action Buttons */}
           <div className="flex items-center">
             <Link
-              href={user ? "/dashboard" : "/signup"}
+              href={user ? "/dashboard" : "/login"}
               className="hidden lg:inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-brand-primary bg-brand-tint hover:bg-brand-mint-light transition-colors shadow-sm mr-2"
             >
               {user ? "Go to Dashboard" : "Get Started"}

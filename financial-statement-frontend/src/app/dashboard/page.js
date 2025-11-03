@@ -17,17 +17,15 @@ import {
   BadgeCheck,
   AlertCircle,
   CreditCard,
-  Gauge,
-  ListChecks,
-  ArrowRight,
+  LogOut,
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { toast } from "sonner";
 
 function signOut() {
-  useAuthStore.getState().logout(); // assuming you have a logout action in your store
-  window.location.href = "/login"; // redirect to login
+  useAuthStore.getState().logout();
+  window.location.href = "/login";
 }
 
 export default function DashboardPage() {
@@ -94,102 +92,123 @@ export default function DashboardPage() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Background image + overlay pinned behind everything */}
+      {/* Background image + overlay */}
       <div
         className="fixed inset-0 -z-20 bg-cover bg-center"
         style={{ backgroundImage: "url(/images/background2.jpg)" }}
       />
-      {/* Gradient overlay for brand colors */}
       <div className="fixed inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-accent/10 pointer-events-none" />
       <div className="fixed inset-0 -z-10 bg-black/10 pointer-events-none" />
 
-      {/* Foreground */}
+      {/* Header */}
       <Header />
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-        {/* Greeting */}
+
+      {/* Main Content */}
+      <main className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
+        {/* Greeting Section */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
-          <h1 className="text-2xl sm:text-3xl font-semibold text-brand-primary drop-shadow-lg">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-brand-primary drop-shadow-lg">
             Welcome{profile?.name ? `, ${profile.name}` : ""}
           </h1>
-          <p className="text-brand-accent/90 drop-shadow-sm">
+          <p className="text-sm sm:text-base text-brand-accent/90 drop-shadow-sm mt-1">
             Here's what's happening with your account.
           </p>
         </motion.div>
 
-        {/* Top row: Subscription + Quick Actions */}
-        <div className="grid gap-6 md:grid-cols-3 mb-8">
-          {/* Subscription Card */}
-          <Card className="md:col-span-2 bg-white/90 backdrop-blur border-brand-tint shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-brand-primary">
-                <CreditCard className="h-5 w-5 text-brand-accent" />
+        {/* Subscription Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <Card className="bg-white/90 backdrop-blur border-brand-tint shadow-lg">
+            <CardHeader className="space-y-1 pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-base sm:text-lg text-brand-primary">
+                <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-brand-accent" />
                 Subscription
               </CardTitle>
-              <CardDescription className="text-brand-subtext">
+              <CardDescription className="text-xs sm:text-sm text-brand-subtext">
                 Manage your plan and billing details.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium ${statusBadge.color}`}>
+
+            <CardContent className="space-y-4">
+              {/* Status and Plan Info */}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3">
+                <span className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium ${statusBadge.color} w-fit`}>
                   {statusBadge.icon}
                   {statusBadge.text}
                 </span>
 
-                <span className="text-sm text-brand-dark">
-                  Plan: <strong className="uppercase text-brand-primary">{planKey}</strong>
-                  {planInterval ? (
-                    <span className="ml-1 text-brand-subtext">
-                      ({planInterval})
-                    </span>
-                  ) : null}
-                </span>
-
-                {periodEnd ? (
-                  <span className="text-sm text-brand-subtext">
-                    Renews: <strong className="text-brand-dark">{periodEnd.toLocaleDateString()}</strong>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                  <span className="text-brand-dark">
+                    Plan: <strong className="uppercase text-brand-primary">{planKey}</strong>
+                    {planInterval && (
+                      <span className="ml-1 text-brand-subtext">
+                        ({planInterval})
+                      </span>
+                    )}
                   </span>
-                ) : null}
+
+                  {periodEnd && (
+                    <span className="text-brand-subtext">
+                      Renews: <strong className="text-brand-dark">{periodEnd.toLocaleDateString()}</strong>
+                    </span>
+                  )}
+                </div>
               </div>
 
+              {/* Free Tier Message */}
               {subscriptionStatus === "free" && (
-                <div className="mt-4 text-sm text-brand-subtext">
-                  You're currently on the free tier. Upgrade to unlock more
-                  features.
+                <div className="mt-3 p-3 bg-brand-tint/50 rounded-lg text-xs sm:text-sm text-brand-subtext border border-brand-primary/10">
+                  You're currently on the free tier. Upgrade to unlock more features.
                 </div>
               )}
             </CardContent>
-            <CardFooter className="flex gap-3">
-              <Link href="/pricing">
-                <Button className="bg-brand-primary hover:bg-brand-purple-light text-brand-white">
-                  {subscriptionStatus === "free"
-                    ? "Choose a Plan"
-                    : "Change Plan"}
+
+            {/* Action Buttons */}
+            <CardFooter className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4">
+              <Link href="/pricing" className="w-full sm:w-auto">
+                <Button className="w-full bg-brand-primary hover:bg-brand-purple-light text-brand-white text-sm">
+                  {subscriptionStatus === "free" ? "Choose a Plan" : "Change Plan"}
                 </Button>
               </Link>
+              
               <Button 
                 variant="outline" 
                 onClick={openBillingPortal}
-                className="border-brand-primary text-brand-primary hover:bg-brand-tint"
+                className="w-full sm:w-auto border-brand-primary text-brand-primary hover:bg-brand-tint text-sm"
               >
-                Open Billing Portal
+                Billing Portal
               </Button>
+              
               <Button 
                 variant="outline" 
                 onClick={signOut}
-                className="border-brand-subtext text-brand-subtext hover:bg-brand-tint"
+                className="w-full sm:w-auto border-brand-subtext text-brand-subtext hover:bg-brand-tint text-sm sm:ml-auto"
               >
+                <LogOut className="h-4 w-4 mr-1.5" />
                 Sign Out
               </Button>
             </CardFooter>
           </Card>
-        </div>
+        </motion.div>
 
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-6 text-center text-brand-subtext text-sm"
+          >
+            Loading your data...
+          </motion.div>
+        )}
       </main>
     </div>
   );
