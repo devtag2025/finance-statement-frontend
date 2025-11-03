@@ -53,7 +53,7 @@ const useDocumentStore = create((set, get) => ({
       // Use fetch directly for FormData (api helper sets JSON headers automatically, which breaks FormData)
       const res = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_BASE || "http://localhost:3000"
+          process.env.NEXT_PUBLIC_API_BASE || "https://finance-statement-backend.vercel.app/"
         }/api/v1/upload/validate`,
         {
           method: "POST",
@@ -161,7 +161,7 @@ const useDocumentStore = create((set, get) => ({
       // POST JSON with token for authentication
       const blobRes = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_BASE || "http://localhost:3000"
+          process.env.NEXT_PUBLIC_API_BASE || "https://finance-statement-backend.vercel.app/"
         }/api/v1/export`,
         {
           method: "POST",
