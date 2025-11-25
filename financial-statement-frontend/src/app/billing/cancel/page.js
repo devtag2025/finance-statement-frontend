@@ -19,7 +19,7 @@ export default function CancelPage() {
         />
 
         {/* Gradient overlay for brand colors */}
-        <div className="absolute inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-accent/10 pointer-events-none" />
+        <div className="absolute inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-primary/10 pointer-events-none" />
 
         {/* Simple overlay for readability */}
         <div className="absolute inset-0 -z-10 bg-black/10 pointer-events-none" />
@@ -50,7 +50,7 @@ export default function CancelPage() {
                 <Link href="/dashboard">
                   <Button 
                     variant="outline" 
-                    className="w-full border-brand-accent text-brand-accent hover:bg-brand-tint"
+                    className="w-full border-brand-primary text-brand-primary hover:bg-brand-tint"
                   >
                     Go to Dashboard
                   </Button>

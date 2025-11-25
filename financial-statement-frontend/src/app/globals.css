@@ -122,7 +122,7 @@
 
   /* Gradient utilities */
   .bg-gradient-primary {
-    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary) 100%);
   }
   .bg-gradient-primary-reverse {
     background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-primary) 100%);
@@ -246,7 +246,7 @@ h3,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--brand-accent);
+  background-color: var(--brand-primary);
   border-radius: 9999px;
 }
 

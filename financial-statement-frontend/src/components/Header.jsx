@@ -27,7 +27,7 @@ export default function Header() {
           <div className="flex items-center rounded-2xl sm:rounded-4xl bg-brand-white px-3 sm:px-6 py-2 opacity-90 shadow-md">
             <div className="flex items-center">
               <span className="text-base sm:text-lg font-bold tracking-wide">
-                <span className="text-brand-primary">Fin-Xtract</span>
+                <span className="text-brand-primary">Fin-XTract</span>
               </span>
             </div>
 
@@ -37,7 +37,7 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <li
                     key={link.label}
-                    className="cursor-pointer text-brand-subtext hover:text-brand-accent transition-colors"
+                    className="cursor-pointer text-brand-subtext hover:text-brand-primary transition-colors"
                   >
                     <Link href={link.href}>{link.label}</Link>
                   </li>
@@ -50,13 +50,13 @@ export default function Header() {
           <div className="flex items-center">
             <Link
               href={user ? "/dashboard" : "/login"}
-              className="hidden lg:inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-brand-primary bg-brand-tint hover:bg-brand-mint-light transition-colors shadow-sm mr-2"
+              className="hidden sm:block bg-brand-primary text-brand-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-brand-purple-light transition-colors shadow-lg mr-2"
             >
               {user ? "Go to Dashboard" : "Get Started"}
             </Link>
             <button
               onClick={() => (window.location.href = "/upload")}
-              className="hidden sm:block bg-brand-primary text-brand-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-brand-purple-light transition-colors shadow-lg"
+              className="hidden lg:inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-brand-primary bg-brand-tint hover:bg-brand-mint-light transition-colors shadow-sm "
             >
               Upload Document
             </button>
@@ -92,7 +92,7 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <li
                     key={link.label}
-                    className="py-2 cursor-pointer text-brand-subtext hover:text-brand-accent hover:bg-brand-tint rounded px-2 transition-colors"
+                    className="py-2 cursor-pointer text-brand-subtext hover:text-brand-primary hover:bg-brand-tint rounded px-2 transition-colors"
                   >
                     <Link href={link.href}>{link.label}</Link>
                   </li>

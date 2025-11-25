@@ -30,8 +30,6 @@ const FEATURES = {
   pro: [
     "Up to 200 exports / month",
     "Priority parsing pipeline",
-    "Advanced field rules",
-    "Branded export templates",
     "Priority support",
   ],
 };
@@ -107,13 +105,13 @@ export default function PricingPage() {
   function PlanCard({ planKey, name, blurb, popular, cta }) {
     const planDoc = getPlan(planKey);
     const price = planDoc ? (planDoc.amount ?? 0) / 100 : 0;
-    const currency = (planDoc?.currency || "usd").toUpperCase();
+    const currency = (planDoc?.currency || "aud").toUpperCase();
     const disabled = !planDoc;
 
     return (
       <Card
-        className={`h-full bg-white/90 backdrop-blur border-brand-tint shadow-lg ${
-          popular ? "ring-2 ring-brand-accent" : ""
+        className={`h-full flex flex-col bg-white/90 backdrop-blur border-brand-tint shadow-lg ${
+          popular ? "ring-2 ring-brand-primary" : ""
         }`}
       >
         <CardHeader>
@@ -123,8 +121,8 @@ export default function PricingPage() {
               <CardDescription className="mt-1 text-brand-subtext">{blurb}</CardDescription>
             </div>
             {popular && (
-              <span className="rounded-full bg-brand-tint text-brand-accent text-xs font-semibold px-3 py-1">
-                Most Popular
+              <span className="rounded-full bg-brand-accent text-white text-xs font-semibold px-3 py-1">
+                Go Pro
               </span>
             )}
           </div>
@@ -140,27 +138,27 @@ export default function PricingPage() {
           </div>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="flex-grow">
           <ul className="space-y-3 text-sm">
             {(FEATURES[planKey] || []).map((f) => (
               <li key={f} className="flex items-start gap-2 text-brand-dark">
-                <Check className="shrink-0 mt-0.5 h-4 w-4 text-brand-accent" />
+                <Check className="shrink-0 mt-0.5 h-4 w-4 text-brand-primary" />
                 <span>{f}</span>
               </li>
             ))}
           </ul>
 
           <div className="mt-4 flex items-center gap-2 text-xs text-brand-subtext">
-            <AlertCircle className="h-4 w-4 text-brand-accent" />
+            <AlertCircle className="h-4 w-4 text-brand-primary" />
             <span>Cancel anytime in the customer portal.</span>
           </div>
         </CardContent>
 
-        <CardFooter className="mt-2">
+        <CardFooter className="mt-auto pt-4">
           <Button
             className={`w-full cursor-pointer ${
               popular
-                ? "bg-brand-accent hover:bg-brand-teal-dark text-brand-white"
+                ? "bg-brand-primary hover:bg-brand-teal-dark text-brand-white"
                 : "bg-brand-primary hover:bg-brand-purple-light text-brand-white"
             }`}
             disabled={disabled}
@@ -184,7 +182,7 @@ export default function PricingPage() {
         />
 
         {/* Gradient overlay for brand colors */}
-        <div className="absolute inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-accent/10 pointer-events-none" />
+        <div className="absolute inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-primary/10 pointer-events-none" />
 
         {/* Simple overlay for readability */}
         <div className="absolute inset-0 -z-10 bg-black/10 pointer-events-none" />
@@ -223,8 +221,8 @@ export default function PricingPage() {
                 onClick={() => setCycle("month")}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${
                   cycle === "month"
-                    ? "bg-brand-accent text-brand-white shadow"
-                    : "text-brand-dark hover:text-brand-accent"
+                    ? "bg-brand-primary text-brand-white shadow"
+                    : "text-brand-dark hover:text-brand-primary"
                 }`}
                 role="tab"
                 aria-selected={cycle === "month"}
@@ -235,8 +233,8 @@ export default function PricingPage() {
                 onClick={() => setCycle("year")}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${
                   cycle === "year"
-                    ? "bg-brand-accent text-brand-white shadow"
-                    : "text-brand-dark hover:text-brand-accent"
+                    ? "bg-brand-primary text-brand-white shadow"
+                    : "text-brand-dark hover:text-brand-primary"
                 }`}
                 role="tab"
                 aria-selected={cycle === "year"}
@@ -288,11 +286,11 @@ export default function PricingPage() {
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-12 text-center text-sm text-brand-dark drop-shadow-sm">
             Questions?{" "}
-            <Link href="/contact" className="text-brand-accent hover:text-brand-teal-dark hover:underline font-medium">
+            <Link href="/contact" className="text-brand-primary hover:text-brand-teal-dark hover:underline font-medium">
               Contact us
             </Link>
             . Already subscribed?{" "}
-            <Link href="/dashboard" className="text-brand-accent hover:text-brand-teal-dark hover:underline font-medium">
+            <Link href="/dashboard" className="text-brand-primary hover:text-brand-teal-dark hover:underline font-medium">
               Go to dashboard
             </Link>
             .

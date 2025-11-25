@@ -1,6 +1,6 @@
 import { useAuthStore } from '@/stores/authStore';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://finance-statement-backend.vercel.app';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
 
 async function rawFetch(path, opts = {}) {
   const res = await fetch(`${API_BASE}/api/v1${path}`, opts);

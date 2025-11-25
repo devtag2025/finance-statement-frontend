@@ -85,7 +85,7 @@ export default function DashboardPage() {
 
   const statusBadge =
     subscriptionStatus === "active" || subscriptionStatus === "trialing"
-      ? { icon: <BadgeCheck className="h-4 w-4" />, text: "Active", color: "bg-brand-mint-light text-brand-accent" }
+      ? { icon: <BadgeCheck className="h-4 w-4" />, text: "Active", color: "bg-brand-mint-light text-brand-primary" }
       : subscriptionStatus === "past_due"
       ? { icon: <AlertCircle className="h-4 w-4" />, text: "Past Due", color: "bg-red-100 text-red-700" }
       : { icon: <AlertCircle className="h-4 w-4" />, text: "Free", color: "bg-brand-tint text-brand-primary" };
@@ -97,7 +97,7 @@ export default function DashboardPage() {
         className="fixed inset-0 -z-20 bg-cover bg-center"
         style={{ backgroundImage: "url(/images/background2.jpg)" }}
       />
-      <div className="fixed inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-accent/10 pointer-events-none" />
+      <div className="fixed inset-0 -z-15 bg-gradient-to-br from-brand-primary/10 via-transparent to-brand-primary/10 pointer-events-none" />
       <div className="fixed inset-0 -z-10 bg-black/10 pointer-events-none" />
 
       {/* Header */}
@@ -115,7 +115,7 @@ export default function DashboardPage() {
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-brand-primary drop-shadow-lg">
             Welcome{profile?.name ? `, ${profile.name}` : ""}
           </h1>
-          <p className="text-sm sm:text-base text-brand-accent/90 drop-shadow-sm mt-1">
+          <p className="text-sm sm:text-base text-brand-primary/90 drop-shadow-sm mt-1">
             Here's what's happening with your account.
           </p>
         </motion.div>
@@ -129,7 +129,7 @@ export default function DashboardPage() {
           <Card className="bg-white/90 backdrop-blur border-brand-tint shadow-lg">
             <CardHeader className="space-y-1 pb-3 sm:pb-4">
               <CardTitle className="flex items-center gap-2 text-base sm:text-lg text-brand-primary">
-                <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-brand-accent" />
+                <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-brand-primary" />
                 Subscription
               </CardTitle>
               <CardDescription className="text-xs sm:text-sm text-brand-subtext">

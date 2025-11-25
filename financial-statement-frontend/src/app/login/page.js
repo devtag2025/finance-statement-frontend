@@ -41,7 +41,7 @@ export default function LoginPage() {
         />
 
         {/* Gradient overlay for brand colors */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-brand-accent/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-brand-primary/20" />
 
         {/* Simple overlay for readability */}
         <div className="absolute inset-0 bg-black/10" />
@@ -64,11 +64,11 @@ export default function LoginPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-4xl sm:text-5xl font-bold text-brand-primary leading-tight drop-shadow-lg">
-                  Welcome to Fin-Xtract
+                  Welcome to Fin-XTract
                 </h1>
-                <p className="text-lg text-brand-accent max-w-lg drop-shadow-md">
+                <p className="text-lg text-brand-primary max-w-lg drop-shadow-md">
                   Transform your financial statements with AI-powered
-                  processing. Upload, analyze, and export with complete privacy.
+                  processing. Upload, analysis, and export with complete privacy.
                 </p>
               </motion.div>
 
@@ -153,15 +153,15 @@ function AuthCard() {
             <TabsList className="grid grid-cols-2 bg-brand-tint rounded-lg p-1 w-full">
               <TabsTrigger 
                 value="login" 
-                className="rounded-md font-medium data-[state=active]:bg-brand-accent data-[state=active]:text-brand-white"
+                className="rounded-md font-medium data-[state=active]:bg-brand-primary data-[state=active]:text-brand-white"
               >
                 Sign In
               </TabsTrigger>
               <TabsTrigger 
                 value="register" 
-                className="rounded-md font-medium data-[state=active]:bg-brand-accent data-[state=active]:text-brand-white"
+                className="rounded-md font-medium data-[state=active]:bg-brand-primary data-[state=active]:text-brand-white"
               >
-                Sign Up
+                Create Account
               </TabsTrigger>
             </TabsList>
           </div>
@@ -178,7 +178,7 @@ function AuthCard() {
                   type="email"
                   placeholder="you@company.com"
                   required
-                  className="h-10 border-brand-tint focus:border-brand-accent focus:ring-brand-accent"
+                  className="h-10 border-brand-tint focus:border-brand-primary focus:ring-brand-primary"
                   disabled={isLoading}
                 />
               </div>
@@ -193,7 +193,7 @@ function AuthCard() {
                   type="password"
                   placeholder="Enter your password"
                   required
-                  className="h-10 border-brand-tint focus:border-brand-accent focus:ring-brand-accent"
+                  className="h-10 border-brand-tint focus:border-brand-primary focus:ring-brand-primary"
                   disabled={isLoading}
                 />
               </div>
@@ -201,7 +201,7 @@ function AuthCard() {
               <div className="flex justify-end text-sm pt-1">
                 <Link
                   href="/forgot-password"
-                  className="text-brand-accent hover:text-brand-teal-dark hover:underline font-medium"
+                  className="text-brand-primary hover:text-brand-teal-dark hover:underline font-medium"
                 >
                   Forgot password?
                 </Link>
@@ -227,7 +227,7 @@ function AuthCard() {
               Don't have an account?{" "}
               <button
                 type="button"
-                className="text-brand-accent hover:text-brand-teal-dark font-medium hover:underline"
+                className="text-brand-primary hover:text-brand-teal-dark font-medium hover:underline"
                 onClick={() => setTab("register")}
               >
                 Sign up
@@ -247,7 +247,7 @@ function AuthCard() {
                   type="text"
                   placeholder="Enter your name"
                   required
-                  className="h-10 border-brand-tint focus:border-brand-accent focus:ring-brand-accent"
+                  className="h-10 border-brand-tint focus:border-brand-primary focus:ring-brand-primary"
                   disabled={isLoading}
                 />
               </div>
@@ -262,7 +262,7 @@ function AuthCard() {
                   type="email"
                   placeholder="you@company.com"
                   required
-                  className="h-10 border-brand-tint focus:border-brand-accent focus:ring-brand-accent"
+                  className="h-10 border-brand-tint focus:border-brand-primary focus:ring-brand-primary"
                   disabled={isLoading}
                 />
               </div>
@@ -277,7 +277,7 @@ function AuthCard() {
                   type="password"
                   placeholder="At least 8 characters"
                   required
-                  className="h-10 border-brand-tint focus:border-brand-accent focus:ring-brand-accent"
+                  className="h-10 border-brand-tint focus:border-brand-primary focus:ring-brand-primary"
                   disabled={isLoading}
                 />
               </div>
@@ -302,7 +302,7 @@ function AuthCard() {
               Already have an account?{" "}
               <button
                 type="button"
-                className="text-brand-accent hover:text-brand-teal-dark font-medium hover:underline"
+                className="text-brand-primary hover:text-brand-teal-dark font-medium hover:underline"
                 onClick={() => setTab("login")}
               >
                 Sign in
@@ -314,11 +314,11 @@ function AuthCard() {
         <div className="mt-6 pt-4 border-t border-brand-tint">
           <p className="text-xs text-center text-brand-subtext">
             By continuing, you agree to our{" "}
-            <Link href="/terms" className="text-brand-accent hover:text-brand-teal-dark hover:underline font-medium">
+            <Link href="/terms" className="text-brand-primary hover:text-brand-teal-dark hover:underline font-medium">
               Terms
             </Link>{" "}
             and{" "}
-            <Link href="/privacy" className="text-brand-accent hover:text-brand-teal-dark hover:underline font-medium">
+            <Link href="/privacy" className="text-brand-primary hover:text-brand-teal-dark hover:underline font-medium">
               Privacy Policy
             </Link>
           </p>

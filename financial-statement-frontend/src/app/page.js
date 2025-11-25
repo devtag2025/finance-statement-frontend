@@ -38,7 +38,7 @@ export default function Page() {
         />
 
         {/* Gradient overlay for brand colors */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-brand-accent/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-brand-primary/20" />
 
         {/* Subtle overlay for text readability */}
         <div className="absolute inset-0 bg-black/10" />
@@ -62,7 +62,7 @@ export default function Page() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold text-brand-primary tracking-tight drop-shadow-lg"
             >
-              Fin-Xtract
+              Fin-XTract
             </motion.h1>
 
             {/* Subtitle */}
@@ -71,7 +71,7 @@ export default function Page() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl sm:text-2xl text-black max-w-2xl mx-auto drop-shadow-md"
             >
-              Your financial companion for smarter document processing
+              Complex financials simplified. Income extracted in a single click.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -93,7 +93,7 @@ export default function Page() {
 
               <Link href="/upload">
                 <motion.button
-                  className="bg-brand-accent/10 backdrop-blur-sm hover:bg-brand-accent/20 text-brand-accent font-semibold py-3 px-8 rounded-full border border-brand-accent/30 hover:border-brand-accent/50 transition-all shadow-md"
+                  className="bg-brand-primary/10 backdrop-blur-sm hover:bg-brand-primary/20 text-brand-primary font-semibold py-3 px-8 rounded-full border border-brand-primary/30 hover:border-brand-primary/50 transition-all shadow-md"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -107,33 +107,12 @@ export default function Page() {
             <motion.p
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm text-brand-accent/90 pt-8 drop-shadow-sm"
+              className="text-sm text-brand-primary/90 pt-8 drop-shadow-sm"
             >
-              Trusted by 10,000+ professionals worldwide
+              Giving you time back to do what really matters.
             </motion.p>
           </motion.div>
         </div>
-
-        {/* Simple scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <svg
-            className="w-6 h-6 text-brand-accent/60"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </motion.div>
       </div>
     </div>
   );
